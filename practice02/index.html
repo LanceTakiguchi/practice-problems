@@ -24,49 +24,48 @@ Prompt: README.md
             }
             return return_array;
         };
-        console.log("first test: ", total_reverse(test_array_1));
-
         var all_tests = [
             {
-                // ** SUPPOSE to FAIL
+                // ** test 0 (SUPPOSE to FAIL)
                 to_test: ["hello", 45, "Bob", "what", "23"],
                 expected: ["2", "wh", "B", "", "hel"]
             },
             {
-                // ** SUPPOSE to FAIL
+                // ** test 1 (SUPPOSE to FAIL)
                 to_test: ["hello", 45, "Bob", "what", "23"],
                 expected: ["2", "what", "Bob", 45, "hello"]
             },
             {
-                // ** prompt's test
+                // ** test 2 prompt's test
                 to_test: ["hello", 45, "Bob", "what", "23"],
                 expected: ["23", "what", "Bob", 45, "hello"]
             },
             {
+                // ** test 3
                 to_test: ["hell", 4, "Bo", "wha", "2"],
                 expected: ["2", "wha", "Bo", 4, "hell"]
             },
             {
-                // ** just numbers
+                // ** test 4 (just numbers)
                 to_test: [1, 2, 3, 4, 5, 6],
                 expected: [6, 5, 4, 3, 2, 1]
             },
             {
-                // ** just strings
+                // ** test 5 (just strings)
                 to_test: ["hello", "my", "name", "is", "Lance"],
                 expected: ["Lance", "is", "name", "my", "hello"]
             },
             {
-                // ** same prompt array. Retesting for consistence
+                // ** test 6 (same prompt array. Retesting for consistence)
                 to_test: ["hello", 45, "Bob", "what", "23"],
                 expected: ["23", "what", "Bob", 45, "hello"]
             },
-            {   // ** just bool
+            {   // ** test 7 (just bool)
                 to_test: [true, false, true, false],
                 expected: [false, true, false, true]
             },
             {
-                // ** mixed bool, string, int, float
+                // ** test 8 (mixed bool, string, int, float)
                 to_test: [true, "hello world", 42, 3.14],
                 expected: [3.14, 42, "hello world", true]
             }
@@ -76,8 +75,6 @@ Prompt: README.md
             var result = total_reverse(all_tests[obj_index].to_test);
             var expected = all_tests[obj_index].expected;
             var test_result = true;
-            /*console.log("result: ", result);
-            console.log("expected:", all_tests[obj_index].expected);*/
             for(var array_index in result){
                 if(!(result[array_index] == expected[array_index])){ // ** if any part of the two array's elements don't match
                     test_result = false;
