@@ -81,8 +81,13 @@ Prompt: README.md
                     break
                 }
             }
-            console.log("test ", obj_index, ": ", test_result);
+            if(test_result){
+                console.log("test "+obj_index+": %c"+test_result.toString(),"color: green");
+            } else{
+                console.log("test "+obj_index+": %c"+test_result.toString(),"color: red","Expected:",expected,"Got:",result);
+            }
         }
+        //TODO: Color code the array to particularly show red on the incorrect elements
     </script>
 </head>
 <body>
