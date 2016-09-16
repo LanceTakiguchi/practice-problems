@@ -40,35 +40,127 @@ Prompt: README.md
             }
             return solution;
         };
-        test_array = [
+        test_addtion_array = [
             {
-                // ** Test 0: 1 + 1 =2
+                // ** Test 0: 1 + 1 = 2
                 operator: "+",
                 num1: 1,
                 num2: 1,
-                expected_result: 1
+                expected_result: 2
+            },
+            {
+                // ** Test 1: 34 + 0 = 34
+                operator: "+",
+                num1: 34,
+                num2: 0,
+                expected_result: 34
+            },
+            {
+                // ** Test 2: -42 + 99 = 57
+                operator: "+",
+                num1: -42,
+                num2: 99,
+                expected_result: 57
+            },
+            {
+                // ** Test 3: 5 + -5 = 0
+                operator: "+",
+                num1: 5,
+                num2: -5,
+                expected_result: 0
+            },
+            {
+                // ** Test 4: 11 + -56 = -45
+                operator: "+",
+                num1: 11,
+                num2: -56,
+                expected_result: -45
+            },
+            {
+                // ** Test 5: -32 + -2 = 7-34
+                operator: "+",
+                num1: -32,
+                num2: -2,
+                expected_result: -34
             }
-        ]
-        for(var test_number in test_array){
-            // ** grabbing object elements
-            var num1 = test_array[test_number].num1;
-            var num2 = test_array[test_number].num2;
-            var operator = test_array[test_number].operator;
-            var expected = test_array[test_number].expected_result;
-            // ** Plugging in the test
-            result = do_math(num1, num2, operator);
-            // ** Checking if the solution is what was expected
-            var confirmation = result === expected;
-            if (confirmation){
-                console.log("Test" + test_number + ": true");
-            }else{
-                console.log("Test" + test_number + ": false || " + num1 + " " + operator + " " + num2 + ": expected: " + expected + ", actual result: " + result);
+        ];
+        test_subtration_array = [
+            {
+                // ** Test 0: 7 - 2 = 5
+                operator: "-",
+                num1: 7,
+                num2: 2,
+                expected_result: 5
+            },
+            {
+                // ** Test 1: 122 - 45 = 77
+                operator: "-",
+                num1: 122,
+                num2: 45,
+                expected_result: 77
+            },
+            {
+                // ** Test 2: 42 - 42 = 0
+                operator: "-",
+                num1: 42,
+                num2: 42,
+                expected_result: 0
+            },
+            {
+                // ** Test 3: 21 - 30 = -9
+                operator: "-",
+                num1: 21,
+                num2: 30,
+                expected_result: -9
+            },
+            {
+                // ** Test 4: 12 - -4 = 16
+                operator: "-",
+                num1: 12,
+                num2: -4,
+                expected_result: 16
+            },
+            {
+                // ** Test 5: -3 - 4 = -7
+                operator: "-",
+                num1: -3,
+                num2: 4,
+                expected_result: -7
+            },
+            {
+                // ** Test 6: -22 - 4 = -18
+                operator: "-",
+                num1: -22,
+                num2: -4,
+                expected_result: -18
             }
-            // ** console.log the test results
-
+        ];
+        /**
+         * Used to test an array to see if the do_math function is operating correctly
+         * @param {Object[]} test_array The array to be tested. It is an array with objects that have an operator, num1, num2, and expected_result
+         * @param {string} test_type The string describing the type of test that the param array will be.
+         */
+        function tester (test_array, test_type){
+            console.log(test_type + " tests");
+            for(var test_number in test_array){
+                // ** grabbing object elements
+                var num1 = test_array[test_number].num1;
+                var num2 = test_array[test_number].num2;
+                var operator = test_array[test_number].operator;
+                var expected = test_array[test_number].expected_result;
+                // ** Plugging in the test
+                result = do_math(num1, num2, operator);
+                // ** Checking if the solution is what was expected
+                var test_was_successful = result === expected;
+                if (test_was_successful){
+                    console.log("Test" + test_number + ": true");
+                }else{
+                    console.log("Test" + test_number + ": false || " + num1 + " " + operator + " " + num2 + ": expected: " + expected + ", actual result: " + result);
+                }
+            }
         }
-
-
+        tester(test_addtion_array, "Addition");
+        tester(test_subtration_array, "Subtraction");
     </script>
 </head>
 <body>
