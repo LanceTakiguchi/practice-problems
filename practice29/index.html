@@ -3,7 +3,7 @@ Project Name: practice29
 File Name: index.html
 Author: Lance Takiguchi
 Date: 09/13/2016 Time: 12:00
-Objective: Create a function and can take two numbers and do an operation dependingly
+Objective: Create a function and can take two numbers and do an operation dependently
 Prompt: README.md
  *********** -->
 <!doctype html>
@@ -13,11 +13,67 @@ Prompt: README.md
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title> practice29, level 0-1 </title>
     <script>
-        function do_math(){
+        /**
+         * A function that can determine and then perform either addition, subtraction, multiplication, or division.
+         * @param {number} num1 The first number in the equation
+         * @param {number} num2 The second number in the equation. The one after the operator.
+         * @param {string} operator A string that holds a math symbol that will determine what kind of opearation to perform
+         * @return {number}
+         */
+        var do_math = function(num1, num2, operator) {
+            var solution = null; // ** The number that will be the solution returned from the function
+            switch(operator){
+                case "+":
+                    solution = num1 + num2;
+                    break;
+                case "-":
+                    solution = num1 - num2;
+                    break;
+                case "*":
+                case "x":
+                case "X":
+                    solution = num1 * num2;
+                    break;
+                case "/":
+                    solution = num1 / num2;
+                    break;
+            }
+            return solution;
+        };
+        test_array = [
+            {
+                // ** Test 0: 1 + 1 =2
+                operator: "+",
+                num1: 1,
+                num2: 1,
+                expected_result: 1
+            }
+        ]
+        for(var test_number in test_array){
+            // ** grabbing object elements
+            var num1 = test_array[test_number].num1;
+            var num2 = test_array[test_number].num2;
+            var operator = test_array[test_number].operator;
+            var expected = test_array[test_number].expected_result;
+            // ** Plugging in the test
+            result = do_math(num1, num2, operator);
+            // ** Checking if the solution is what was expected
+            var confirmation = result === expected;
+            if (confirmation){
+                console.log("Test" + test_number + ": true");
+            }else{
+                console.log("Test" + test_number + ": false || " + num1 + " " + operator + " " + num2 + ": expected: " + expected + ", actual result: " + result);
+            }
+            // ** console.log the test results
 
         }
+
+
     </script>
 </head>
 <body>
+    <h1>
+        Practice 29: do_math
+    </h1>
 </body>
 </html>
