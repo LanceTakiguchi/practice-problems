@@ -14,10 +14,16 @@ Prompt:
     <title> Practice 30 - Random Number or Array Element </title>
     <script>
         function random_range(start_num, end_num){
-            var random_number = Math.floor(Math.random() * (end_num - start_num)) + start_num;
-            return random_number;
+            if (typeof start_num === 'number'){
+                var random_number = Math.floor(Math.random() * (end_num - start_num)) + start_num;
+                return random_number;
+            }else{
+                var random_index = Math.floor(Math.random() * (start_num.length));
+                return start_num[random_index];
+            }
         }
         console.log(random_range(3,5));
+        console.log(random_range(["a", "b", "c"]));
     </script>
 </head>
 <body>
