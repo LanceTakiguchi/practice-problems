@@ -250,7 +250,7 @@ Prompt: README.md
          * @param {string} test_type The string describing the type of test that the param array will be.
          */
         function tester (test_array, test_type){
-            console.log(test_type + " tests");
+            console.log("%c" + test_type + " tests", "color: lightblue");
             for(var test_number in test_array){
                 // ** grabbing object elements
                 var num1 = test_array[test_number].num1;
@@ -262,9 +262,10 @@ Prompt: README.md
                 // ** Checking if the solution is what was expected
                 var test_was_successful = result === expected;
                 if (test_was_successful){
-                    console.log("Test" + test_number + ": true");
+                    var to_display = "%cTest" + test_number + ": true";
+                    console.log(to_display, "color: green");
                 }else{
-                    console.log("Test" + test_number + ": false || " + num1 + " " + operator + " " + num2 + ": expected: " + expected + ", actual result: " + result);
+                    console.log("%cTest" + test_number + ": false || " + num1 + " " + operator + " " + num2 + ": expected: " + expected + ", actual result: " + result, "color: red");
                 }
             }
         }
