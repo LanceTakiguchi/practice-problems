@@ -49,35 +49,42 @@ Prompt: README.md
                 expected_result: 2
             },
             {
-                // ** Test 1: 34 + 0 = 34
+                // ** Test 1: 347 + 3 = 350
+                operator: "+",
+                num1: 347,
+                num2: 3,
+                expected_result: 350
+            },
+            {
+                // ** Test 2: 34 + 0 = 34
                 operator: "+",
                 num1: 34,
                 num2: 0,
                 expected_result: 34
             },
             {
-                // ** Test 2: -42 + 99 = 57
+                // ** Test 3: -42 + 99 = 57
                 operator: "+",
                 num1: -42,
                 num2: 99,
                 expected_result: 57
             },
             {
-                // ** Test 3: 5 + -5 = 0
+                // ** Test 4: 5 + -5 = 0
                 operator: "+",
                 num1: 5,
                 num2: -5,
                 expected_result: 0
             },
             {
-                // ** Test 4: 11 + -56 = -45
+                // ** Test 5: 11 + -56 = -45
                 operator: "+",
                 num1: 11,
                 num2: -56,
                 expected_result: -45
             },
             {
-                // ** Test 5: -32 + -2 = 7-34
+                // ** Test 6: -32 + -2 = 7-34
                 operator: "+",
                 num1: -32,
                 num2: -2,
@@ -135,6 +142,108 @@ Prompt: README.md
                 expected_result: -18
             }
         ];
+        test_multiplication_array = [
+            {
+                // ** Test 0: 7 x 3 = 21
+                operator: "x",
+                num1: 7,
+                num2: 3,
+                expected_result: 21
+            },
+            {
+                // ** Test 1: 12 * 12 = 144
+                operator: "*",
+                num1: 12,
+                num2: 12,
+                expected_result: 144
+            },
+            {
+                // ** Test 2: 2.1 - 3 = 6.3
+                operator: "X",
+                num1: 2.1,
+                num2: 3,
+                expected_result: 6.3
+            },
+            {
+                // ** Test 3: 23 * 0 = 0
+                operator: "*",
+                num1: 23,
+                num2: 0,
+                expected_result: 0
+            },
+            {
+                // ** Test 4: 5 X -3 = -15
+                operator: "X",
+                num1: 5,
+                num2: -3,
+                expected_result: -15
+            },
+            {
+                // ** Test 5: -3 x 6 = -18
+                operator: "x",
+                num1: -3,
+                num2: 6,
+                expected_result: -18
+            },
+            {
+                // ** Test 6: -5 * -7 = 35
+                operator: "*",
+                num1: -5,
+                num2: -7,
+                expected_result: 35
+            }
+        ];
+        test_division_array = [
+            {
+                // ** Test 0: 8 / 2 = 4
+                operator: "/",
+                num1: 8,
+                num2: 2,
+                expected_result: 4
+            },
+            {
+                // ** Test 1: 120 / 12 = 10
+                operator: "/",
+                num1: 120,
+                num2: 12,
+                expected_result: 10
+            },
+            {
+                // ** Test 2: 42 - 42 = 0
+                operator: "/",
+                num1: 42,
+                num2: 42,
+                expected_result: 1
+            },
+            {
+                // ** Test 3: 1 / 0 = Infinity
+                operator: "/",
+                num1: 1,
+                num2: 0,
+                expected_result: Infinity
+            },
+            {
+                // ** Test 4: 12 / -3 = -4
+                operator: "/",
+                num1: 12,
+                num2: -3,
+                expected_result: -4
+            },
+            {
+                // ** Test 5: -30 / 5 = -6
+                operator: "/",
+                num1: -30,
+                num2: 5,
+                expected_result: -6
+            },
+            {
+                // ** Test 6: -5 - 2 = 2.5
+                operator: "/",
+                num1: -5,
+                num2: -2,
+                expected_result: 2.5
+            }
+        ];
         /**
          * Used to test an array to see if the do_math function is operating correctly
          * @param {Object[]} test_array The array to be tested. It is an array with objects that have an operator, num1, num2, and expected_result
@@ -161,6 +270,8 @@ Prompt: README.md
         }
         tester(test_addtion_array, "Addition");
         tester(test_subtration_array, "Subtraction");
+        tester(test_multiplication_array, "Multiplication");
+        tester(test_division_array, "Division");
     </script>
 </head>
 <body>
