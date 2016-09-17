@@ -1,0 +1,37 @@
+<!-- ***********
+Project Name: practice30
+File Name: index.html
+Author: Lance Takiguchi
+Date: 09/17/2016 Time: 15:17
+Objective: Get familiar with the random number generator
+Prompt:
+ *********** -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title> Practice 32 - Find the Middle of the String </title>
+    <script>
+        function find_middle_letters(whole_string){
+            var index = null;
+            var middle = null;
+            if (whole_string.length % 2 === 0){
+                index = whole_string.length / 2;
+                middle = whole_string[index - 1] + whole_string[index];
+            }else{
+                index = Math.floor(whole_string.length / 2);
+                middle = whole_string[index];
+            }
+            return middle;
+        }
+        console.log(find_middle_letters("seven"));
+        console.log(find_middle_letters("dish"));
+    </script>
+</head>
+<body>
+<h1>
+    Practice 32 - Find the Middle of the String
+</h1>
+</body>
+</html>
