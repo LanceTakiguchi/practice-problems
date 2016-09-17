@@ -13,19 +13,27 @@ Prompt:
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title> Practice 32 - Find the Middle of the String </title>
     <script>
+        /**
+         * A function that finds the middle letter in odd strings and the middle two letters in an even string
+         * @param {string} whole_string The string that whose middle will letters will be found
+         * @return {string} In a odd whole_string.length it would return one letter, in an even whole_string.length it will be the middle two letters
+         */
         function find_middle_letters(whole_string){
-            var index = null;
-            var middle = null;
-            if (whole_string.length % 2 === 0){
+            var index = null; // ** The index that will tell where the middle the of the whole_string
+            var middle = null; //** The middle letter in an odd string and the middle two letters in an even string
+            if (whole_string.length % 2 === 0){ // ** If the whole_length is an even number
                 index = whole_string.length / 2;
                 middle = whole_string[index - 1] + whole_string[index];
-            }else{
-                index = Math.floor(whole_string.length / 2);
+            }else{ //** Else the length of the whole_string in an odd number
+                index = Math.floor(whole_string.length / 2); // ** The 2 division of an odd lengthed string results in a 0.5 float and so we care about the floor of that float.
                 middle = whole_string[index];
             }
             return middle;
         }
+        // ***** TESTING ****
+        // ** Odd string length test case
         console.log(find_middle_letters("seven"));
+        // ** Even string length test case
         console.log(find_middle_letters("dish"));
     </script>
 </head>
