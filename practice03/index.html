@@ -1,9 +1,9 @@
 <!-- ***********
-Project Name: practice03
+Project Name: practice30
 File Name: index.html
 Author: Lance Takiguchi
-Date: 09/08/2016 Time: 15:23
-Objective: Create a function that an arrays sorts datatypes into their own arrays
+Date: 09/17/2016 Time: 15:17
+Objective: Get familiar with the random number generator
 Prompt: README.md
  *********** -->
 <!doctype html>
@@ -13,11 +13,37 @@ Prompt: README.md
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title> One to Multi - Practice 03 </title>
     <script>
-        var test_0 = ["hello", 43, true, false, "goodbye", 56, 12, "25", true];
-        // ** a function that takes an array as a parameter and returns an array with arrays inside that all contain the same datatype
-        var groupArray = function (array_to_sort) {
-
-        }
+        var test_0 = ["hello", 34, true, false, "goodbye", 56, 12, "25", true];
+        /**
+         * A function that takes an array as a parameter and returns an array with arrays inside that all contain the same datatype
+         * @param {Array} array_to_sort An array that holds various types to be sorted
+         * @return {Array} sorted_array An array that holds array where each array is a collection of the same types of elements
+         */
+        var groupArray = function (array_to_sort){
+            var sorted_array = []; // ** The array to be returned that will holds arrays that contain elements of the same type
+            var type_track = []; // ** An array to keep track of the types that an array have already been created
+            for (var index in array_to_sort){ // ** Going through the param array
+                var type = typeof array_to_sort[index]; // ** Keeping the type of the current element
+                if(index === 0){ // ** If this is the very first element to be sorted
+                    type_track.push(type); // ** store the type that this element was
+                    sorted_array.push([array_to_sort[index]]); // ** put the element into it's own array in the final return array
+                }else{
+                    var type_in = false; // ** Flag to check if the type existed already in the return array
+                    for(var type_index in type_track){ // ** Looping through the type_track array to see if the current type is there already
+                        if(type === type_track[type_index]){ // ** If this type is already in an array collection in the return array
+                            sorted_array[type_index].push(array_to_sort[index]); // ** Store the element of the param in the appropriate type collecting array
+                            type_in = true; // ** Set the flag off to know not to create an new array and type.
+                        }
+                    }
+                    if(!type_in){ // ** If this type isn't already recorded
+                        type_track.push(type); // ** Save the new type
+                        sorted_array.push([array_to_sort[index]]); // ** Store the element in it's own new collection array
+                    }
+                }
+            }
+            return sorted_array;
+        };
+        console.log(groupArray(test_0)); // ** Prompt example test
     </script>
 </head>
 <body>
