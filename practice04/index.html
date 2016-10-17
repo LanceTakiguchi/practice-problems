@@ -5,15 +5,47 @@ Author: Lance Takiguchi
 Date: 10/17/2016 Time: 12:00 
 Objective: Alphabetical order sort
 Prompt: https://github.com/Learning-Fuze/practice-problems/blob/master/practice04/README.md
- *********** -->
+*********** -->
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<title> Sort - Practice Problem 3 </title>
-	</head>
-	<body>
-		<h1>Sort - Practice Problem 3</h1>
-	</body>	
+<head>
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<title> Sort - Practice Problem 3 </title>
+	<script>
+	/**
+	 * Takes an array of strings and returns an alphabetically ordered array
+	 * @param  Array unordered An array of strings
+	 * @return Array           An array of string sorted alphabetically
+	 */
+	 var test_1 = ["mouse", "cat", "dog", "human"];
+	 var sort = function(unordered){
+	 	var was_switch = true; //** Flag to see if the array is sorted; There was no positions swapped in the array and it is sorted.
+		var ordered = unordered; //** Create array to return. Give it the lower cased version of strings
+		while(was_switch){
+			was_switch = false; //** Reset flag
+			/*
+			Loop through the array to look for misordered positions
+			 */
+			for(var i = 1; i < unordered.length; i++){
+				/*
+				if the later is smaller than the former, switch positions and tell the while loop it needs to run again
+				 */
+				if(ordered[i].toLowerCase() < ordered[i-1].toLowerCase()){
+					var temp = ordered[i];
+					ordered[i] = ordered[i-1];
+					ordered[i-1] = temp;
+					was_switch = true; //** There was a switch, run the while loop again
+				}
+			}	
+		}
+		return ordered;
+		
+	};
+	console.log(sort(test_1));
+	</script>
+</head>
+<body>
+	<h1>Sort - Practice Problem 3</h1>
+</body>	
 </html>
