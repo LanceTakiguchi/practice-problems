@@ -13,24 +13,34 @@ Prompt: https://github.com/Learning-Fuze/practice-problems/blob/master/practice0
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<title> Sort - Practice Problem 3 </title>
 	<script>
+	var test_0 = {unordered: ["mouse", "cat", "dog", "human"], expected: ["cat", "dog", "human", "mouse"]};
+	var test_1 = {unordered: ["b", "E", "F", "a", "C", "d"], expected: ["a", "b", "C", "d", "E", "F"]};
+	var test_2 = {unordered: ["a", "b", "c", "d", "e", "f"], expected: ["a", "b", "c", "d", "e", "f"]};
+	var test_3 = {unordered: ["a", "B", "C", "d", "E", "f"], expected: ["a", "B", "C", "d", "E", "f"]};
+	var test_4 = {unordered: ["Cookies", "cake", "crumbs", "crunch", "Cube"], expected: ["cake", "Cookies", "crumbs", "crunch", "Cube"]};
+	var test_5 = {unordered: ["kings", "Eggs", "Alphabetical", "apple", "engineer", "data"], expected: ["Alphabetical", "apple", "data", "Eggs", "engineer", "kings"]};
+	var test_6 = {unordered: ["haystack", "search", "array", "needle", "can't", "period"], expected: ["array", "can't", "haystack", "needle", "period", "search"]};
+	var test_7 = {unordered: ["WaTch", "vAR", "dePenDeNcy", "bIndIng", "Next", "wEEk"], expected: ["bIndIng", "dePenDeNcy", "Next", "vAR", "WaTch", "wEEk"]};
+	var test_8 = {unordered: ["RED", "GREEN", "BLUE"], expected: ["BLUE", "GREEN", "RED"]};
+	var test_9 = {unordered: ["kim", "jess", "grant", "jim", "tim"], expected: ["grant", "jess", "jim", "kim", "tim"]};
+	var all_tests = [test_0, test_1, test_2, test_3, test_4, test_5, test_6, test_7, test_8, test_9];
 	/**
 	 * Takes an array of strings and returns an alphabetically ordered array
-	 * @param  Array unordered An array of strings
+	 * @param  Object unordered An object with the unordered array and expected array
 	 * @return Array           An array of string sorted alphabetically
 	 */
-	 var test_1 = ["mouse", "cat", "dog", "human"];
-	 var sort = function(unordered){
+	 var sort = function(test){
 	 	var was_switch = true; //** Flag to see if the array is sorted; There was no positions swapped in the array and it is sorted.
-		var ordered = unordered; //** Create array to return. Give it the lower cased version of strings
+		var ordered = test.unordered; //** Create array to return. Give it the lower cased version of strings
 		while(was_switch){
 			was_switch = false; //** Reset flag
 			/*
 			Loop through the array to look for misordered positions
-			 */
-			for(var i = 1; i < unordered.length; i++){
+			*/
+			for(var i = 1; i < ordered.length; i++){
 				/*
 				if the later is smaller than the former, switch positions and tell the while loop it needs to run again
-				 */
+					*/
 				if(ordered[i].toLowerCase() < ordered[i-1].toLowerCase()){
 					var temp = ordered[i];
 					ordered[i] = ordered[i-1];
@@ -40,12 +50,32 @@ Prompt: https://github.com/Learning-Fuze/practice-problems/blob/master/practice0
 			}	
 		}
 		return ordered;
-		
 	};
-	console.log(sort(test_1));
-	</script>
-</head>
-<body>
-	<h1>Sort - Practice Problem 3</h1>
-</body>	
-</html>
+	/**
+	 * Takes an array of test objects with the unordered arrays and expected arrays and prints if they match/passed in the console.
+	 * @param  Array all_tests An array with objects that hold the unordered array and the expected array
+	 */
+	 var test_runner = function(all_tests){
+	 	for(i in all_tests){
+	 		var result = sort(all_tests[i]);
+	 		var passed = true;
+	 		for(j in result){
+	 			if(result[j] !== all_tests[i].expected[j]){
+	 				passed = false;
+	 				break;
+	 			}
+	 		}
+	 		if(passed){
+	 			console.log("Test " + i + ": " + passed);	
+	 		}else{
+	 			console.warn("Test " + i + ": " + passed+ ". Expected: " + all_tests[i].expected + " | Result: " + result);
+	 		}
+	 	}
+	 };
+	 test_runner(all_tests);
+	 </script>
+	</head>
+	<body>
+		<h1>Sort - Practice Problem 3</h1>
+	</body>	
+	</html>
