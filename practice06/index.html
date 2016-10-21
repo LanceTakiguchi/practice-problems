@@ -5,25 +5,33 @@ Author: Lance Takiguchi
 Date: 10/20/2016 Time: 18:21 
 Objective: Build a function that takes one parameter and prints out the Fibonacci sequence based on the input parameter.
 Prompt: https://github.com/Learning-Fuze/practice-problems/blob/master/practice06/README.md
- *********** -->
+JS Bin: http://jsbin.com/kisujufowa/2/edit?html,console
+*********** -->
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<meta name="keywords" content="HTML, JS, Javascript, Lance Takiguchi">
-		<meta name="author" content="Lance Takiguchi">
-		<meta name="description" content="Build a function that takes one parameter and prints out the Fibonacci sequence based on the input parameter.">
-		<meta name="date" content="10/20/16, October 20, 2016">
-		<title> Practice 6 - Numeric Spirals </title>
-		<!-- THE FUNCTION -->
-		<script>
+<head>
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="keywords" content="HTML, JS, Javascript, Lance Takiguchi">
+	<meta name="author" content="Lance Takiguchi">
+	<meta name="description" content="Build a function that takes one parameter and prints out the Fibonacci sequence based on the input parameter.">
+	<meta name="date" content="10/20/16, October 20, 2016">
+	<title> Practice 6 - Numeric Spirals </title>
+	<!-- THE FUNCTION -->
+	<script>
 		/**
 		 * Takes a Number for how much of the fibanacci sequence to display starting from 0
 		 * @param  Number amount Starting from 0, displays the fibanacci sequence up to that number
 		 * @return String        Holds the numbers for the fibanacci sequence from 0 to the amount from the param
 		 */
-		function fibanacci(amount){
+		 function fibanacci(amount){
+		 	try{
+		 		if(amount < 1){
+		 			throw "fibanacci @param amount Error: Needs to be greater than 1";
+		 		}
+		 	}catch(error){
+		 		console.warn(error);
+		 	}
 			//** Starting string to return
 			var output = "0"; 
 			//** Loop to add numbers to the return string
@@ -40,36 +48,43 @@ Prompt: https://github.com/Learning-Fuze/practice-problems/blob/master/practice0
 		 * @param  Number amount   Starting from zero, how much of the fibanacci sequence to display via inputting it into the fibanacci function
 		 * @return [Bool, String]          An Array holding if the test passed, as well as what fibanacci's output String was.
 		 */
-		function tester(expected, amount){
+		 function tester(expected, amount){
 			//** The String output by the fibanacci sequence. It is to be tested.
 			var result = fibanacci(amount);
+			var return_arr = [result];
 			//** If it is the String/sequence that was expected
 			if(result === expected){
-				return [true, result];
+				return_arr.unshift(true);
+			}else{
+				return_arr.unshift(false);
 			}
-			return [false, result];
+			return return_arr;
 		};
 		/**
 		 * Runs the tests through the tester function by putting in a set of tests passed through this function's param
 		 * @param  [Object] test_set An Array with Objects that have the expected String and the Amount of the fibanancci sequence to print
 		 */
-		function init_tests(test_set){
+		 function init_tests(test_set){
 			//** result for a loop instance's test.
 			var result = null;
 			//** Loop through the array of tests
 			for(var i in test_set){
 				result = tester(test_set[i].expected, test_set[i].amount);
 				//** If the test passed
-				if(result[0]){
+				try{
+					if(!result[0]){
+						throw "Test " + i + " for input " + test_set[i].amount + " failed. Expected: " + test_set[i].expected + " | Result: " +  result[1]
+					}
 					console.log("Test " + i + " for input " + test_set[i].amount + " passed");
-				}else{
-					console.warn("Test " + i + " for input " + test_set[i].amount + " failed. Expected: " + test_set[i].expected + " | Result: " +  result[1])
+				}
+				catch(error){
+					console.warn(error);
 				}
 			}
 		};
 		/*
 		An Array with Objects that tell what is expected at a given amount of the sequnce to go through
-		 */
+		*/
 		var tests = [
 		{expected: "0 1 1 2 3 5 8 13 21 34 55 89", amount: 12},
 		{expected: "0", amount: 1},
@@ -95,4 +110,4 @@ Prompt: https://github.com/Learning-Fuze/practice-problems/blob/master/practice0
 		<h1> Practice 6 - Numeric Spirals </h1>
 		<p> Level 2-1 </p>
 	</body>	
-</html>
+	</html>
