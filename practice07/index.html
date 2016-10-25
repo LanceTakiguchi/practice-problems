@@ -17,37 +17,62 @@ Prompt: https://github.com/Learning-Fuze/practice-problems/blob/master/practice0
 	<meta name="date" content="10/24/16, October 24, 2016">
 	<title> Practice 07 - Igpay Atinlay </title>
 	<script>
+	/**
+	 * Takes a string and returns the string in pig latin form.
+	 * @param  String input The string that is to be changed to pig latin
+	 * @return String       The input string, but now abiding by pig latin rules
+	 */
 	var pig_latin = function(input){
+		// Turns the input into an array split by spaces
 		var divided = input.split(" ");
+		// The current string in the array
 		var cur = null;
+		// The first letter in the current string
 		var first = null;
+		// The rest of the characters in the current string
 		var rest = null;
+		// The pig latin version of the current string
 		var part = null;
+		// The pig latin string to be returned at the end
 		var completed = "";
-		var vowel_test = /^[aeiou]$/i;
-		var cap_test = /^[A-Z]$/;
+		// Regex test to find vowels
+		var vowel_tester = /^[aeiou]$/i;
+		// Regex test to find capital letters
+		var cap_tester = /^[A-Z]$/;
+		// Test result of the Regex cap_test
 		var is_cap = false;
+		// For each substring in the input string
 		for(var i in divided){
-			cur = divided[i]
+			// Current substring/word
+			cur = divided[i];
 			first = cur[0];			
-			if(cap_test.test(first)){
+			// Test to see if the first letter in the current string is capital
+			if(cap_tester.test(first)){
+				// Set is_cap flag to true
 				is_cap = true;
 			}
 			first = first.toLowerCase();
+			// Everything in the current string after the first letter
 			rest = cur.substr(1);
-			if(vowel_test.test(first)){
+			// Check to see if the first letter in the current string was a vowel. Apply appropriate pig latin word rules
+			if(vowel_tester.test(first)){
 				part = rest +"way ";
 			}else{
 				part = rest + first + "ay ";
 			}
+			// If the first letter in the current string was original capital, make the new pig latin string's first letter capital
 			if(is_cap){
 				part = part[0].toUpperCase() + part.substr(1);
 			}
+			// Add the new pig latin string to the final return string
 			completed += part;
+			// Reset is_cap flag to false
 			is_cap = false;
-		}
+		} // End of input string loop
+		// Remove the extra space string from the end of the completed final return string
 		return completed.slice(0, -1);
 	};
+	// ****** RUN TESTS ****** //
 	console.log(pig_latin("Hello my name is Stu"));
 	</script>
 </head>
