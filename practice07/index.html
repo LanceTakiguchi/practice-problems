@@ -5,38 +5,53 @@ Author: Lance Takiguchi
 Date: 10/24/2016 Time: 21:00 
 Objective: Create a Pig Latin function
 Prompt: https://github.com/Learning-Fuze/practice-problems/blob/master/practice07/README.md
- *********** -->
+*********** -->
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<meta name="keywords" content="HTML, Lance Takiguchi">
-		<meta name="author" content="Lance Takiguchi">
-		<meta name="description" content="">
-		<meta name="date" content="10/24/16, October 24, 2016">
-		<title> Practice 07 - Igpay Atinlay </title>
+<head>
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="keywords" content="HTML, Lance Takiguchi">
+	<meta name="author" content="Lance Takiguchi">
+	<meta name="description" content="">
+	<meta name="date" content="10/24/16, October 24, 2016">
+	<title> Practice 07 - Igpay Atinlay </title>
 	<script>
-		var pig_latin = function(input){
-			var divided = input.split(" ");
-			var cur = null;
-			var first = null;
-			var rest = null;
-			var part = null;
-			var completed = "";
-			for(var i in divided){
-				cur = divided[i].toLowerCase();
-				first = cur[0];
-				rest = cur.substr(1);
-				part = rest + first + "ay ";
-				completed += part;
+	var pig_latin = function(input){
+		var divided = input.split(" ");
+		var cur = null;
+		var first = null;
+		var rest = null;
+		var part = null;
+		var completed = "";
+		var vowel_test = /^[aeiou]$/i;
+		var cap_test = /^[A-Z]$/;
+		var is_cap = false;
+		for(var i in divided){
+			cur = divided[i]
+			first = cur[0];			
+			if(cap_test.test(first)){
+				is_cap = true;
 			}
-			return completed;
-		};
-		console.log(pig_latin("Hello my name is Stu"));
+			first = first.toLowerCase();
+			rest = cur.substr(1);
+			if(vowel_test.test(first)){
+				part = rest +"way ";
+			}else{
+				part = rest + first + "ay ";
+			}
+			if(is_cap){
+				part = part[0].toUpperCase() + part.substr(1);
+			}
+			completed += part;
+			is_cap = false;
+		}
+		return completed.slice(0, -1);
+	};
+	console.log(pig_latin("Hello my name is Stu"));
 	</script>
-	</head>
-	<body>
-		<h1> Practice 07 - Igpay Atinlay </h1>
-	</body>	
+</head>
+<body>
+	<h1> Practice 07 - Igpay Atinlay </h1>
+</body>	
 </html>
