@@ -17,7 +17,23 @@ Prompt: https://github.com/Learning-Fuze/practice-problems/blob/master/practice0
 		<meta name="date" content="10/24/16, October 24, 2016">
 		<title> Practice 07 - Igpay Atinlay </title>
 	<script>
-	
+		var pig_latin = function(input){
+			var divided = input.split(" ");
+			var cur = null;
+			var first = null;
+			var rest = null;
+			var part = null;
+			var completed = "";
+			for(var i in divided){
+				cur = divided[i].toLowerCase();
+				first = cur[0];
+				rest = cur.substr(1);
+				part = rest + first + "ay ";
+				completed += part;
+			}
+			return completed;
+		};
+		console.log(pig_latin("Hello my name is Stu"));
 	</script>
 	</head>
 	<body>
