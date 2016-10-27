@@ -1,0 +1,58 @@
+<!-- *********** 
+Project Name: Practice 09 - Fitting Words
+File Name: index.html
+Author: Lance Takiguchi
+Date: 10/26/2016 Time: 16:51 
+Objective: Build a function that takes in a string and an array of strings. The function should output an array of strings that contain the same letters as the single input string.
+Prompt: https://github.com/Learning-Fuze/practice-problems/blob/master/practice09/README.md
+*********** -->
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="keywords" content="HTML, Lance Takiguchi, JS, practice, javascript, function, array, strings">
+	<meta name="author" content="Lance Takiguchi">
+	<meta name="description" content="Build a function that takes in a string and an array of strings. The function should output an array of strings that contain the same letters as the single input string.">
+	<meta name="date" content="10/26/16, October 26, 2016">
+	<title> Practice 09 - Fitting Words </title>
+	<script>
+	/**
+	 * Given a needle string, finds strings in an array that contain the same letters as the needle string..
+	 * @param  String needle   Search string whose letters will be looked for in the array's Strings
+	 * @param  [Strings] haystack An array of strings
+	 * @return [Strings]          An array of strings which have the same letters as those in the needle
+	 */
+	fitting_words = function(needle, haystack){
+		var word = null;
+		var pass = null;
+		var keys = null;
+		//TODO: Use only unique char in the keys, throw out redudent ones
+		var matches = [];
+		// for words in the haystack
+		for(var i in haystack){
+			keys = needle.split("");
+			word = haystack[i];
+			pass = true;
+			// For key in keys
+			for(var j in keys){
+				// If the key is not in the word, break; word does not pass 
+				if(word.indexOf(keys[j]) === -1){
+					pass = false;
+					break;
+				}
+			}
+			// If all the keys were in the word, push it into the return array
+			if(pass){
+				matches.push(word);
+			}
+		}
+		return matches
+	}
+	console.log(fitting_words('cat', ['cat','caterpillar','whale','accurate','smile','cactus','cute']));
+	</script>
+</head>
+<body>
+	<h1> Practice 09 - Fitting Words </h1>
+</body>	
+</html>
