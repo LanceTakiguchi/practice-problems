@@ -5,6 +5,7 @@ Author: Lance Takiguchi
 Date: 11/08/2016 Time: 11:23 
 Objective: Look for any keys in a target Array
 Prompt: https://github.com/LanceTakiguchi/practice-problems/blob/master/practice26/README.md
+JS Bin: http://jsbin.com/jepugasike/edit?js,console
 */
 
 /**
