@@ -1,0 +1,62 @@
+<!-- *********** 
+Project Name: Practice 13 - Math Computation Sequences
+File Name: index.html
+Author: Lance Takiguchi
+Date: 11/01/2016 Time: 10:37 
+Objective: Write a function that takes two numbers and returns the four basic operations on the two
+Prompt: https://github.com/Learning-Fuze/practice-problems/blob/master/practice13/README.md
+ *********** -->
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="keywords" content="HTML, Lance Takiguchi, JS, Javascript, practice, problem, programming, code, coding, program, math, function, operation">
+		<meta name="author" content="Lance Takiguchi">
+		<meta name="description" content="Write a function that takes two numbers and returns the four basic operations on the two">
+		<meta name="date" content="11/01/16, November 11, 2016">
+		<title> Practice 13 - Math Computation Sequences </title>
+		<script>
+		/**
+		 * Function that takes two numbers and returns an array of strings that display the operational result of the two in addtion, subtraction, multiplication, and division
+		 * @param  Number num1 First element in the equation
+		 * @param  Number num2 Second element in the equation
+		 * @return [String]      An array with strings that display the four operations performed on the two params
+		 */
+			function math_sequence(num1, num2){
+				// Will be the array returned with all four strings
+				var arr = [];
+				// An array with all the operations wished to be performed
+				var ops = ["+", "-", "*", "/"];
+				// Solution per operation in loop
+				var sol = null;
+				// For each operator in the array
+				for(var i in ops){
+					// Do the appropriate math
+					switch(ops[i]){
+						case "+":
+							sol = num1 + num2;
+							break;
+						case "-":
+							sol = num1 - num2;
+							break;
+						case "*":
+							sol = num1 * num2;
+							break;
+						case "/":
+							sol = num1 / num2;
+							break;
+					} // Operator switch end
+					// Place the string with the solution for what operation just took place into the final return array
+					arr.push(num1.toString() + ops[i] + num2.toString() + "=" + sol.toString());
+				} // Opertor loop end
+				// Return array with all four operations performed
+				return arr;
+			};
+			console.log(math_sequence(2,5));
+		</script>
+	</head>
+	<body>
+		<h1> Practice 13 - Math Computation Sequences </h1>
+	</body>	
+</html>

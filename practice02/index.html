@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- ***********
+Project Name: practice02
+File Name: index.html
+Author: Lance Takiguchi
+Date: 09/08/2016 Time: 12:00
+Objective: Function that reverses an array's content
+Prompt: README.md
+ *********** -->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title> practice02 </title>
+    <script>
+        var test_array_1 = ["hello", 45, "Bob", "what", "23"];
+        // TODO: put test_arrays into an object that holds untested array & expected result
+                // TODO: work with it in some way that allow the expected result to be compared with the actual result
+        // ** function that takes an array and returns the array in reverse
+        var total_reverse = function(array_to_reverse){
+            var return_array = [];
+            for(var i = array_to_reverse.length - 1; i >= 0; i--){
+                return_array.push(array_to_reverse[i]);
+            }
+            return return_array;
+        };
+        var all_tests = [
+            {
+                // ** test 0 (SUPPOSE to FAIL)
+                to_test: ["hello", 45, "Bob", "what", "23"],
+                expected: ["2", "wh", "B", "", "hel"]
+            },
+            {
+                // ** test 1 (SUPPOSE to FAIL)
+                to_test: ["hello", 45, "Bob", "what", "23"],
+                expected: ["2", "what", "Bob", 45, "hello"]
+            },
+            {
+                // ** test 2 prompt's test
+                to_test: ["hello", 45, "Bob", "what", "23"],
+                expected: ["23", "what", "Bob", 45, "hello"]
+            },
+            {
+                // ** test 3
+                to_test: ["hell", 4, "Bo", "wha", "2"],
+                expected: ["2", "wha", "Bo", 4, "hell"]
+            },
+            {
+                // ** test 4 (just numbers)
+                to_test: [1, 2, 3, 4, 5, 6],
+                expected: [6, 5, 4, 3, 2, 1]
+            },
+            {
+                // ** test 5 (just strings)
+                to_test: ["hello", "my", "name", "is", "Lance"],
+                expected: ["Lance", "is", "name", "my", "hello"]
+            },
+            {
+                // ** test 6 (same prompt array. Retesting for consistence)
+                to_test: ["hello", 45, "Bob", "what", "23"],
+                expected: ["23", "what", "Bob", 45, "hello"]
+            },
+            {   // ** test 7 (just bool)
+                to_test: [true, false, true, false],
+                expected: [false, true, false, true]
+            },
+            {
+                // ** test 8 (mixed bool, string, int, float)
+                to_test: [true, "hello world", 42, 3.14],
+                expected: [3.14, 42, "hello world", true]
+            }
+        ];
+
+        for(var obj_index in all_tests){
+            var result = total_reverse(all_tests[obj_index].to_test);
+            var expected = all_tests[obj_index].expected;
+            var test_result = true;
+            for(var array_index in result){
+                if(!(result[array_index] == expected[array_index])){ // ** if any part of the two array's elements don't match
+                    test_result = false;
+                    break
+                }
+            }
+            if(test_result){
+                console.log("test "+obj_index+": %c"+test_result.toString(),"color: green");
+            } else{
+                console.log("test "+obj_index+": %c"+test_result.toString(),"color: red","Expected:",expected,"Got:",result);
+            }
+        }
+        //TODO: Color code the array to particularly show red on the incorrect elements
+    </script>
+</head>
+<body>
+    <header>
+        <h1>
+            Practice 02
+        </h1>
+    </header>
+</body>
+</html>

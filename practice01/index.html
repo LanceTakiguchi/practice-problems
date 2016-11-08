@@ -1,0 +1,56 @@
+<!-- ***********
+Project Name: Practice01
+File Name: index.html
+Author: Lance Takiguchi
+Date: 09/16/2016 Time: 10:18
+Objective: Get better acquainted with functions by creating one to loop and compare
+Prompt: README.md
+ *********** -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title> Bigger Words </title>
+    <script>
+        var total = 6; // ** Holds the total number of arrays
+        var test_array_1 = ["bug", "insect", "mammal", "reptile", "mammoth", "turtles"];
+        var test_array_2 = ["mammal", "reptile", "bug", "insect", "mammoth", "turtles"]; // ** reorder to mix sizes
+        var test_array_3 = ["cat", "bird", "dog", "lizard", "snake", "hamster"];
+        var test_array_4 = []; // ** empty array
+        var test_array_5 = ["math"];
+        var test_array_6 = ["math", "science", "history", "english", "spanish", "PE", "art", "jazz"];
+        // ** The Bigger word's sorting function
+        // ** takes two parameters, compare_string which is a string, compared_array which is an array of strings.
+        //      Checks the length of compare_string and sees if there is any string in compare_array that has a longer
+        //      length and stores it in return_array. returns return_array, an array that holds all the values that were
+        //      greater than the compare_string.
+        var bigger_words = function(compare_string, compared_array){
+            var return_array = []; // ** This array will be returned. It will hold strings from the compared_array that are
+                                    //      greater than that the compare_string.
+            for(var index in compared_array){
+                if(compare_string.length < compared_array[index].length){
+                    return_array.push(compared_array[index]);
+                }
+            }
+            return return_array;
+        };
+        // ** function to test the bigger_words function
+        // ** Takes an array of strings that will one by one be tested against every test_array_
+        var bigger_words_tester = function(compare_strings){
+            for (var outer = 0; outer < compare_strings.length; outer++){
+                console.log("string arrays are being compared to: ", compare_strings[outer]);
+                for(var i = 1;  i <= total; i++){
+                    var test_array = "test_array_" + i;
+                    var test = bigger_words(compare_strings[outer], window[test_array]);
+                    console.log(test_array, ": ", test);
+                }
+            }
+        };
+        var compare_strings = ["cake", "bear", "", "cookies", "tea", "Takiguchi", "supercalifragilisticexpialidocious"];
+        bigger_words_tester(compare_strings);
+    </script>
+</head>
+<body>
+</body>
+</html>

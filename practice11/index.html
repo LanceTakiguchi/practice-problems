@@ -1,0 +1,54 @@
+<!-- *********** 
+Project Name: Practice 11 - Even Odds
+File Name: index.html
+Author: Lance Takiguchi
+Date: 10/28/2016 Time: 17:06 
+Objective: Build a function that takes one array and then sorts it into odd and even numbers
+Prompt: https://github.com/Learning-Fuze/practice-problems/blob/master/practice11/README.md
+*********** -->
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="keywords" content="HTML, Lance Takiguchi">
+	<meta name="author" content="Lance Takiguchi">
+	<meta name="description" content="Build a function that takes one array and then sorts it into odd and even numbers">
+	<meta name="date" content="10/28/16, October 28, 2016">
+	<title> Practice 11 - Even Odds </title>
+	<script>
+	/**
+	 * Takes an array of mixed numbers and returns an object that contains an array with only even numbers and another with just odd numbers. It will throw away anything in the param array that wasn't a Number type
+	 * @param  [Number] mixed An array of numbers that are even and odd
+	 * @return Object       An object with two arrays, one with even numbers and another with odd numbers
+	 */
+	var even_odds = function(mixed){
+		// Array with odd numbers to be returned
+		var odd = [];
+		// Array with even numbers to be returned
+		var even = [];
+		// Holds the current number in the loop
+		var cur = null;
+		// Loop through each param value
+		for(var i in mixed){
+			cur = mixed[i];
+			// If the cur isn't a number, ignore it an move to next element
+			if(typeof cur === "number"){
+				// If it is even or odd, push into according array
+				if(mixed[i] % 2 === 0){
+					even.push(mixed[i]);
+				}else{
+					odd.push(mixed[i]);
+				}
+			} // if number check end
+		} // For param elements loop end
+		// Return object with the odd & even arrays
+		return {odd: odd, even: even};
+	};
+	console.log(even_odds([2,5,1,6,8,2,20,"cat",13,3]));
+	</script>
+</head>
+<body>
+	<h1> Practice 11 - Even Odds </h1>
+</body>	
+</html>

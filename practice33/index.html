@@ -1,0 +1,50 @@
+<!-- ***********
+Project Name: practice30
+File Name: index.html
+Author: Lance Takiguchi
+Date: 09/17/2016 Time: 15:17
+Objective: Get familiar with the random number generator
+Prompt:
+ *********** -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title> Practice 33 - Invert Positive Number </title>
+    <script>
+        /**
+         * Takes positive numbers and turns them negative. Returns negative params as is. Returns all other types of param as false
+         * @param {number} number A positive to be turned negative or negative number returned as is.
+         * @return {number || boolean} Numbers return negative and all other types result in false as the return
+         */
+        function invert_negatives(number){
+            if(typeof number === 'number'){ // ** Checking if the typeof the param is a number
+                if(number > 0){ // ** If the number is positive, return negative
+                    return -number;
+                }
+                return number; // ** The number is already negative, return as is
+            }
+            return false; // ** The param given wasn't a number, return false.
+        }
+        console.log(invert_negatives(5));
+        console.log(invert_negatives(-34));
+        console.log(invert_negatives(0));
+        console.log(invert_negatives(-4.5));
+        console.log(invert_negatives(.23));
+        console.log(invert_negatives(true));
+        console.log(invert_negatives("Please"));
+        console.log(invert_negatives(["h", "e", 1, "p"]));
+    </script>
+    <style>
+        span {
+            font-size: 80px;
+        }
+    </style>
+</head>
+<body>
+<h1>
+    Practice 33 - THE GREAT <span> NEGAFIR </span>
+</h1>
+</body>
+</html>
