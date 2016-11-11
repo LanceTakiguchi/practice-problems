@@ -8,3 +8,18 @@ Prompt: https://github.com/LanceTakiguchi/practice-problems/blob/master/practice
 Level: 3 - 1
 JS Bin: 
 */
+
+/**
+ * Takes a string and returns the string of it's ASCII equivalent on a character to character basis
+ * @param  String words A String to be converted into ASCII Numbers
+ * @return String       A String of Numbers representing the @param words characters in ASCII
+ */
+function character_convert(words){
+	var numbers = "";
+	for(var char in words){
+		numbers += words[char].charCodeAt(0);
+	}
+	return numbers;
+}
+
+console.log(character_convert("the cat in the hat"));
