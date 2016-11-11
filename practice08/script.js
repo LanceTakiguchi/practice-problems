@@ -16,8 +16,18 @@ JS Bin:
  */
 function character_convert(words){
 	var numbers = "";
+	// Holds all previously seen chars for quick convertion
+	var known = {};
+	var cur = null;
 	for(var char in words){
-		numbers += words[char].charCodeAt(0);
+		cur = words[char].charCodeAt(0);
+		if(char in known){
+			numbers += known[char];
+		}else{
+			// Save the new char translation in return & Object
+			known[char] = cur;
+			numbers += cur;
+		}
 	}
 	return numbers;
 }
