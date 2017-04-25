@@ -5,7 +5,7 @@ Author: Lance Takiguchi
 Date: 2017/04/25 Time: 13:50
 Objective: Create a function and can take two numbers and do an operation dependently
 Prompt: README.md
- *********** -->
+*********** -->
 <!doctype html>
 <html>
 <head>
@@ -20,14 +20,33 @@ Prompt: README.md
          * @param  {[string]} operator [Either a '+' or '-' or '*' or '/']
          * @return {[Number]}          [the result of num1 operator num2]
          */
-        var do_math = function(num1, num2, operator){
-
+         var do_math = function(num1, num2, operator){
+            var result;
+            switch(operator){
+                case '+':
+                result = num1 + num2;
+                break;
+                case '-':
+                result = num1 - num2;
+                break;
+                case '*':
+                case 'x':
+                case 'X':
+                result = num1 * num2;
+                break;
+                case '/':
+                result = num1 / num2;
+                break;
+                default:
+                result = null;
+            }
+            return result;
         }
     </script>
-</head>
-<body>
-    <h1>
-        Practice 29: do_math
-    </h1>
-</body>
-</html>
+    </head>
+    <body>
+        <h1>
+            Practice 29: do_math
+        </h1>
+    </body>
+    </html>
