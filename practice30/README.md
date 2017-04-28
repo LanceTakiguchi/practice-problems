@@ -11,4 +11,4 @@ Build a function, random_range, that takes 2 parameters, start_num and end_num. 
 	- random_range(['a','b','c','d','e'])
 		- returns 'b'
 
-My JS Bin Answer: https://jsbin.com/babaruxoco/2/edit?js,console,output
+My JS Bin Answer: https://jsbin.com/weyofukeno/1/edit?js,console,output
