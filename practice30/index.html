@@ -2,7 +2,7 @@
 Project Name: practice30
 File Name: index.html
 Author: Lance Takiguchi
-Date: 09/17/2016 Time: 11:48
+Date: 2017/04/27 Time: 18:39
 Objective: Get familiar with the random number generator
 Prompt:
  *********** -->
@@ -14,21 +14,14 @@ Prompt:
     <title> Practice 30 - Random Number or Array Element </title>
     <script>
         /**
-         * Given a start and end range, it will return a random number in that range. If given an array, it will return a random element in the array
-         * @param {number || Object[]}start_num Either an array or a number which would indicate the start of the range
-         * @param {number} end_num Tells what the end of the number range is. If start_num is an array, then this param will be left blank.
-         * @return {*} Either an random number from the indicated range or an random element from the inputted array
+         * [random_range Returns a random number within a range]
+         * @param  {[Number || Array]} start_num [A number indicating the beginning or a range or an array with which a random number will be drawn from]
+         * @param  {[Number]} end_num   [An optional param that indicates the end of a range to randomly select from]
+         * @return {[Number or random type]}           [A random number in the range or a random item in an array]
          */
         function random_range(start_num, end_num){
-            if (typeof start_num === 'number'){
-                return Math.floor(Math.random() * (end_num - start_num)) + start_num;
-            }else{
-                var random_index = Math.floor(Math.random() * (start_num.length)); // ** random index in the array
-                return start_num[random_index];
-            }
+            
         }
-        console.log(random_range(3,5));
-        console.log(random_range(["a", "b", "c"]));
     </script>
 </head>
 <body>
