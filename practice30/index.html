@@ -5,6 +5,7 @@ Author: Lance Takiguchi
 Date: 2017/04/27 Time: 18:39
 Objective: Get familiar with the random number generator
 Prompt:
+JS Bin: https://jsbin.com/babaruxoco/2/edit?js,console,output
  *********** -->
 <!doctype html>
 <html>
@@ -20,7 +21,10 @@ Prompt:
          * @return {[Number or random type]}           [A random number in the range or a random item in an array]
          */
         function random_range(start_num, end_num){
-            
+            if(typeof(start_num) === "number"){
+                return Math.floor(Math.random() * (end_num - start_num + 1))+ start_num;   
+            }
+            return start_num[Math.floor(Math.random() * start_num.length)];
         }
     </script>
 </head>
