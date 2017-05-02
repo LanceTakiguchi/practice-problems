@@ -11,3 +11,6 @@ It:
 - example:
 	- cocococombomath(3,2,6,3,5)
 		- Returns -1
+
+#### My Answer
+* https://jsbin.com/zasuvuqojo/2/edit?html,js,console
